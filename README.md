@@ -6,5 +6,7 @@
 
  Team Members:
  Agna Antony            - agnaantony@oakland.edu
+ 
  Vineela Rao Aksapu     - vineelaraoakasa@oakland.edu
+ 
  Mubassir Gamfoi        - mubassirgamfoi@oakland.edu 
