@@ -35,6 +35,6 @@ An adaptive system that learns prompt edits which improve the target LLM’s per
  
  Agna Antony            - agnaantony@oakland.edu
  
- Vineela Rao Aksapu     - vineelaraoakasa@oakland.edu
+ Vineela Rao Akasapu     - vineelaraoakasa@oakland.edu
  
  Mubassir Gamfoi        - mubassirgamfoi@oakland.edu 
