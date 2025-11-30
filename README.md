@@ -50,9 +50,11 @@ Evaluation is based on:
 - Improved summarization quality after training  
 - A complete written report and Colab demonstration notebook
 
-
  Team Members:
  
  Agna Antony            - agnaantony@oakland.edu
+ 
  Vineela Rao Akasapu     - vineelaraoakasa@oakland.edu
+ 
  Mubassir Gamfoi        - mubassirgamfoi@oakland.edu 
+
