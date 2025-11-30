@@ -1,40 +1,58 @@
-# CSI5130-Artificial-Intelligence---project
-**Adaptive Prompt Optimization using Reinforcement Learning (RLHF-lite)**
- 
-## 1) Project Overview
-Depending on how the input prompt is written, large language models (LLMs) such as Mistral and GPT-4 perform differently.  While poorly written prompts can result in misunderstandings or mistakes, well-written ones can inspire precise and imaginative answers.  The goal of this project is to develop an Adaptive Prompt Optimization system that uses Reinforcement Learning (RL) to automatically learn how to make prompts better.  Beginning with a straightforward prompt, the system will assess the model's output quality and gradually learn to produce better prompts that produce better outcomes.  This project is RLHF-lite, a condensed, lightweight variant of RLHF (Reinforcement Learning from Human Feedback) intended for small-scale testing.
+# Adaptive Prompt Optimization using Reinforcement Learning (RLHF-Lite)
 
-## 2) Objectives
-- **RL Agent:** Implement an agent that improves prompts for a chosen task (e.g., summarization or QA).  
-- **Target Model:** Use an LLM (GPT‑3.5/GPT‑4/Mistral) as the response generator.  
-- **Reward Function:** Define automatic metrics (BLEU/ROUGE/accuracy) to score each response.  
-- **Learning Evidence:** Demonstrate improvement across training iterations (learning curves + examples).
+**CSI 5130 – Artificial Intelligence Project**
 
-## 3) Methodology
-1. **Task selection.** Choose a simple generative task (e.g., summarization on a small dataset).  
-2. **Base model.** Query GPT‑3.5/GPT‑4/Mistral via API as the environment’s response generator.  
-3. **RL loop.** The agent proposes a new prompt (action) given state (previous prompt + stats), receives reward from metrics, and updates its prompt policy.  
-4. **Reward.** Compute BLEU/ROUGE (or task accuracy) against references; optionally combine with style/length constraints.  
-5. **Policy update.** Start with a simple Q‑learning baseline; optionally compare with a lightweight policy‑gradient (REINFORCE) variant.  
 
-## 4) Evaluation Metrics
-- **Task score:** BLEU/ROUGE improvement (summarization), or accuracy (QA/classification).  
-- **Learning signal:** Average reward per iteration; smoothed learning curve.  
-- **Stability:** Reward variance across seeds/runs.  
-- **Qualitative:** Before/after prompt examples with side‑by‑side outputs.
 
-## 5) Expected Outcome
-An adaptive system that learns prompt edits which improve the target LLM’s performance on the chosen task. Deliverables include:
-- Learning curves (reward/metric vs. iteration)  
-- Ablations (Q‑learning vs. REINFORCE; different reward mixes)  
-- Before/after prompt examples and outputs  
-- Final report + demo
+## 1. Project Overview
+Large Language Models (LLMs) such as T5, GPT-4, and Mistral are highly sensitive to how prompts are phrased.  
+A well-crafted prompt produces clear, accurate responses, while a poorly phrased one may result in irrelevant or incorrect output.
+
+This project builds a small-scale Adaptive Prompt Optimization system using a simplified RLHF approach called RLHF-Lite, where automated metrics (ROUGE-1 + BLEU) replace human feedback.  
+A lightweight Q-learning agent interacts with FLAN-T5-Base and learns which prompt template yields better summarization quality over time.
+
+
+## 2. Objectives
+- Implement a Q-learning agent to choose the best prompt template  
+- Use FLAN-T5-Base as the summarization model  
+- Design a reward function using ROUGE-1 + BLEU  
+- Show improvement in prompt selection over training iterations  
+- Produce a final report and demonstration notebook
+
+
+## 3. Methodology
+The system operates on a small summarization task using a few handcrafted text–summary pairs.
+
+- The environment is the FLAN-T5-Base model  
+- The agent chooses from five prompt templates (e.g., `"Summarize the following:"`, `"TL;DR:"`)  
+- At each step:
+  1. Agent selects a prompt via ε-greedy
+  2. FLAN-T5 generates a summary  
+  3. Reward computed using ROUGE-1 + BLEU  
+  4. Q-values updated  
+- Training runs for a limited number of iterations on Google Colab
+
+This lightweight setup avoids large-scale RLHF infrastructure and focuses only on prompt selection.
+
+
+## 4. Evaluation Plan
+Evaluation is based on:
+
+- ROUGE-1 and BLEU scores (combined into a single reward)  
+- Reward trend across iterations  
+- Q-value progression to detect template preference  
+- Before/after comparisons of summaries  
+
+
+## 5. Expected Outcomes
+- A reinforcement-learning-based prompt selector 
+- Evidence of learning through reward curves** and Q-value updates  
+- Improved summarization quality after training  
+- A complete written report and Colab demonstration notebook
 
 
  Team Members:
  
  Agna Antony            - agnaantony@oakland.edu
- 
  Vineela Rao Akasapu     - vineelaraoakasa@oakland.edu
- 
  Mubassir Gamfoi        - mubassirgamfoi@oakland.edu 
