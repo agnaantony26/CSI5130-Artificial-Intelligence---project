@@ -1,7 +1,5 @@
 # Adaptive Prompt Optimization using Reinforcement Learning (RLHF-Lite)
-```python
-print("Hello World")
-```
+
 
 **CSI 5130 – Artificial Intelligence Project**
 
